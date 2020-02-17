@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tom's calculator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>Tom's calculator</h1>
+  <p>Calculates order price with discount and tax</p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Full order price</th>
+      <th scope="col">Discount in %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">>=1000</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th scope="row">>=3000</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th scope="row">>=5000</th>
+      <td>7</td>
+    </tr>
+  <tr>
+      <th scope="row">>=10000</th>
+      <td>10</td>
+    </tr>
+  <tr>
+      <th scope="row">>=50000</th>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+    <div class="col-sm-4">
+      <form action="/" method="post">
+    {{ form }}
+          <br>
+    <input type="submit" value="Calculate" class="form-control">
+</form>
+        {% if full_order_price %}
+        <br>
+            <h3>Full order price - {{ full_order_price }}</h3>
+            <h3>Price with discount - {{ price_with_discount }}</h3>
+            <h3>Price with tax - {{ price_with_tax }}</h3>
+        {% endif %}
+    </div>
+    <div class="col-sm-4">
+      <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">State</th>
+      <th scope="col">Tax in %</th>
+    </tr>
+  </thead>
+      <tbody>
+          {% for state, tax in taxes.items %}
+          <tr>
+      <th scope="row">{{  state }}</th>
+      <td>{{ tax }}</td>
+    </tr>
+          {% endfor %}
+      </tbody>
+</table>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
