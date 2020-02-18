@@ -32,5 +32,5 @@
 Установка и запуск:
 
 * pip install -r requirements.txt (ставим зависимости)
-* ./manage.py tests (запускаем тесты)
+* ./manage.py test (запускаем тесты)
 * ./manage.py runserver (запускаем приложение http://127.0.0.1:8000/)
